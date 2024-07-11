@@ -1,0 +1,22 @@
+/* Estilos específicos para el header */
+.site-header {
+    background-color: #f7e7ea; 
+    padding: 10px; 
+    
+}
+
+.site-header img {
+    max-width: 100%; 
+    height: auto;
+}
+
+
+/* Estilos para el navbar */
+.navbar {
+    background: rgb(121, 196, 186);
+}
+
+/* Estilos para los enlaces del navbar */
+.navbar-nav .nav-link {
+    color: #0a0505; 
+}
