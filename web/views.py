@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Flan, ContactForm
-from .forms import ContactFormModelForm 
+from .forms import ContactFormForm 
 
     # Create your views here.
 def index(request):
@@ -30,7 +30,7 @@ def about(request):
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactFormModelForm(request.POST)
+        form = ContactFormForm(request.POST)
      
         if form.is_valid():
             contact_form=ContactForm.objects.create(**form.cleaned_data)
@@ -38,7 +38,7 @@ def contact(request):
         else:  
             print("Formulario no válido. Errores:", form.errors)
     else:
-        form = ContactFormModelForm()
+        form = ContactFormForm()
             
     return render(request, 'contact.html', {'form': form})
 

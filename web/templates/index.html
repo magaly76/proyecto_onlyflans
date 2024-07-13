@@ -1,66 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Contenido -->
+{% block 'content' %}
 
-    {% load static %}
-     
-    <!-- Enlaces a Bootstrap y a tu archivo CSS personalizado -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    {% include 'basehead.html'%}
-
-</head>
-
-<body class="container">
-    <!--Header y Navbar-->
-    {% block 'header' %}
-
-    {% include 'header.html' %}
-    {% endblock %}
-   
-    <!-- Navbar -->
-    {% block 'navbar' %}
-    {% include 'navbar.html' %}    
-    
-    {% endblock %}
-
-    <!-- Contenido -->
-    {% block 'content'%}
-    <div class="container">
-        <div class="row mt-4 mb-4">
-            {%for flan in public_flans %}
-                <div class="col-3 mb-10">
-                    <div class="card mb-4" style="width: 15rem;">
-                        <img src="{{flan.image_url}}" class="card-img-top" alt="..." style="width: 240px; height: 150px;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ flan.name }}</h5>
-                            <p class="card_text">{{ flan.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}    
+<div class="row">
+    <div class="col">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-4">
+            <h3 class="text-center">Nuestros Productos</h3>
+            <div>
+                <hr style="border-color: gray; border-width: 3px; width: 100%; height: 5px;">
+            </div>
+            <p>OnlyFlans renace el 2024 buscando superar la calidad de sus recetas</p>
+            <a href="{% url 'about' %}" class="btn btn-outline-ligth" style="color: #413d3d;">Conoce más</a>
         </div>
     </div>
-    {% endblock%} 
-   
-    <!-- Pie de página -->
-    {% block 'footer' %}
-    {% include 'footer.html' %}    
-    {% endblock%}  
+</div>
 
-     <!-- Option 1: Bootstrap Bundle with Popper -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<div class="container">
+    <div class="row mt-4 mb-4">
+        {%for flan in public_flans %}
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <img src="{{flan.image_url}}" class="card-img-top img-fluid" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ flan.name }}</h5>
+                    <p class="card_text">{{ flan.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-
-
-</body>
-</html>
+{% endblock%}

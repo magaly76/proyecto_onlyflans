@@ -6,9 +6,8 @@
    
     <!-- Enlaces a Bootstrap y a tu archivo CSS personalizado -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    <title>Bienvenido a onlyflans</title>
+    {% load static %}
+    {% include 'basehead.html'%} 
 
 </head>
 
