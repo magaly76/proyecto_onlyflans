@@ -31,8 +31,8 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ flan.name }}</h5>
                     <p class="card_text">{{ flan.description }}</p>
-                    <p class="card-text"><strong>Categoría:</strong> {{ flan.get_categoria_display }}</p>
-                    <a href="{% url 'recipe' %}" class="btn btn-primary">Ver Detalles</a>
+                    <p class="card-text"><strong>Categoría:</strong> {{ flan.get_category_display }}</p>
+                    <a href="{% url 'recipe' %}" class="btn btn-info">Ver Detalles</a>
                 </div>
             </div>
         </div>

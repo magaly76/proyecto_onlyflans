@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from web.views import index, about, welcome, contact, exito, carousel, recipe
+from web.views import index, about, welcome, contact, exito, carousel, recipe, recipe_detail
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('carousel/', carousel, name='carousel'),
     path('recipes/', recipe, name='recipe'),
+    path('recipe_detail<slug:slug>/', recipe_detail, name='recipe_detail'),
 ]
