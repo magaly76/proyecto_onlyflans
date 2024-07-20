@@ -13,11 +13,11 @@
                 <a class="nav-link active" aria-current="page" style="color: #413d3d; " href="{% url 'index' %}">Inicio</a>
             </li>
 
-            {% if user.is_authenticated %}
+            
             <li class="nav-item">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'welcome' %}">Bienvenido</a>
-            </li>{% endif %}
-
+            </li>
+           
 
             <li class="nav-item">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'about' %}">Acerca</a>
@@ -25,12 +25,22 @@
             <li class="nav-item">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'contact' %}">Contacto</a>
             </li>
-
-            {% if not user.is_authenticated %}
+            
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link btn btn-secondary text-white" href="{% url 'login' %}">Iniciar sesión</a>
+                <a class="nav-link" style="color: #413d3d;" href="{% url 'recipe' %}">Recetas</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-secondary text-white" href="/accounts/logout/">Cerrar sesión</a>
+            </li>
+
+            {% else %}           
+           <li class="nav-item">
+                <a class="nav-link btn btn-secondary text-white" href="/accounts/login/">Iniciar sesión</a>
+            </li>
+            
             {% endif %}
+            
         </ul>
     </div>
 </nav>

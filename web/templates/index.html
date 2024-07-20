@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
-<!-- Contenido -->
-{% block 'content' %}
+<!-- Carousel -->
+{% block carousel %}
+    {% include 'carousel.html' %}
+{% endblock %}
 
+<!-- Contenido -->
+{% block content %}
 <div class="row">
     <div class="col">
         <div class="col-12 col-md-6 offset-0 offset-md-3 mt-4">
@@ -27,11 +31,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ flan.name }}</h5>
                     <p class="card_text">{{ flan.description }}</p>
+                    <p class="card-text"><strong>Categoría:</strong> {{ flan.get_categoria_display }}</p>
+                    <a href="{% url 'recipe' %}" class="btn btn-primary">Ver Detalles</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
-
-{% endblock%}
+{% endblock %}
