@@ -9,33 +9,33 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                 <a class="nav-link active" aria-current="page" style="color: #413d3d; " href="{% url 'index' %}">Inicio</a>
             </li>
 
             
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/welcome/' %}active{% endif %}">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'welcome' %}">Bienvenido</a>
             </li>
            
 
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'about' %}">Acerca</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/contact/' %}active{% endif %}">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'contact' %}">Contacto</a>
             </li>
             
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/recipe/' %}active{% endif %}">
                 <a class="nav-link" style="color: #413d3d;" href="{% url 'recipe' %}">Recetas</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if request.path == '/accounts/logout/' %}active{% endif %}">
                 <a class="nav-link btn btn-secondary text-white" href="/accounts/logout/">Cerrar sesión</a>
             </li>
 
             {% else %}           
-           <li class="nav-item">
+           <li class="nav-item {% if request.path == '/accounts/login/' %}active{% endif %}">
                 <a class="nav-link btn btn-secondary text-white" href="/accounts/login/">Iniciar sesión</a>
             </li>
             
@@ -44,4 +44,11 @@
         </ul>
     </div>
 </nav>
+
+<style>
+    .navbar-nav .nav-item.active .nav-link {
+      font-weight: bold;
+      color: #413d3d !important;
+    }
+  </style>
 

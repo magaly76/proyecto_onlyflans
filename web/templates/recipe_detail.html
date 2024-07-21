@@ -10,8 +10,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ flan.name }}</h5>
-                        <p class="card-text"><strong>Ingredientes:</strong> {{ flan.ingredients }}</p>
-                        <p class="card-text"><strong>Instrucciones:</strong> {{ flan.instructions }}</p>
+                        <p class="card-text"><strong>Ingredientes:</strong> {{ flan.ingredients | linebreaksbr }}</p>
+                        <p class="card-text"><strong>Instrucciones:</strong> {{ flan.instructions | linebreaksbr }}</p>
                     </div>
                 </div>
             </div>
